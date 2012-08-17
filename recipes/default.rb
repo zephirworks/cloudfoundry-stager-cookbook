@@ -19,16 +19,16 @@
 
 package "curl"
 
-cloudfoundry_common_source "stager" do
+cloudfoundry_source "stager" do
   path          node['cloudfoundry_stager']['vcap']['install_path']
   repository    node['cloudfoundry_stager']['vcap']['repo']
   reference     node['cloudfoundry_stager']['vcap']['reference']
 end
 
-cloudfoundry_common_component "stager" do
+cloudfoundry_component "stager" do
   install_path  node['cloudfoundry_stager']['vcap']['install_path']
   pid_file      node['cloudfoundry_stager']['pid_file']
   log_file      node['cloudfoundry_stager']['log_file']
   action        [:create, :enable, :start]
-  subscribes    :restart, resources("cloudfoundry-common_source" => "stager")
+  subscribes    :restart, resources("cloudfoundry_source" => "stager")
 end

@@ -12,10 +12,10 @@ default['cloudfoundry_stager']['vcap']['reference']    = "47ac329e4a8776d3c10c30
 default['cloudfoundry_stager']['log_level'] = "info"
 
 # Where to write the stager's logs.
-default['cloudfoundry_stager']['log_file'] = File.join(node['cloudfoundry_common']['log_dir'], "stager.log")
+default['cloudfoundry_stager']['log_file'] = File.join(node['cloudfoundry']['log_dir'], "stager.log")
 
 # Where to write the stager's pid.
-default['cloudfoundry_stager']['pid_file'] = File.join(node['cloudfoundry_common']['pid_dir'], "stager.pid")
+default['cloudfoundry_stager']['pid_file'] = File.join(node['cloudfoundry']['pid_dir'], "stager.pid")
 
 # 
 default['cloudfoundry_stager']['max_staging_duration'] = 120
@@ -27,7 +27,7 @@ default['cloudfoundry_stager']['max_active_tasks'] = 10
 default['cloudfoundry_stager']['queues'] = ['staging']
 
 # 
-default['cloudfoundry_stager']['tmp_dir'] = File.join(node['cloudfoundry_common']['data_dir'], "stager", "tmp")
+default['cloudfoundry_stager']['tmp_dir'] = File.join(node['cloudfoundry']['data_dir'], "stager", "tmp")
 
 # 
 default['cloudfoundry_stager']['secure'] = false
