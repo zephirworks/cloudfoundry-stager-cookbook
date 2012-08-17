@@ -30,5 +30,5 @@ cloudfoundry_component "stager" do
   pid_file      node['cloudfoundry_stager']['pid_file']
   log_file      node['cloudfoundry_stager']['log_file']
   action        [:create, :enable, :start]
-  subscribes    :restart, resources("cloudfoundry_source" => "stager")
+  subscribes    :restart, resources(:cloudfoundry_source => "stager")
 end
