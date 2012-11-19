@@ -1,0 +1,3 @@
+cookbook "cloudfoundry-stager" do
+  runtimes []
+end
