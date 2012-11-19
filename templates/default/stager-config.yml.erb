@@ -14,7 +14,6 @@ queues:
 <% end %>
 
 dirs:
-  manifests: <%= node['cloudfoundry']['staging_manifests_dir'] %>
   tmp: <%= node['cloudfoundry_stager']['tmp_dir'] %>
 
 ruby_path: <%= File.join(ruby_bin_path(node['cloudfoundry']['ruby_1_9_2_version']), "ruby") %>

@@ -1,3 +1,5 @@
+include_attribute "cloudfoundry::directories"
+
 # Where to install the CloudFoundry code.
 default['cloudfoundry_stager']['vcap']['install_path'] = "/srv/vcap-stager"
 
@@ -6,7 +8,7 @@ default['cloudfoundry_stager']['vcap']['repo']         = "https://github.com/clo
 
 # Git reference to use when fetching the CloudFoundry code. Can be
 # either a specific sha or a reference such as `HEAD` or `master`.
-default['cloudfoundry_stager']['vcap']['reference']    = "47ac329e4a8776d3c10c3016b7280f3a86d3d834"
+default['cloudfoundry_stager']['vcap']['reference']    = "206b1071298dc25dcfb8ca4f0004a2edbc3b0b7e"
 
 # Log level for the stager.
 default['cloudfoundry_stager']['log_level'] = "info"
