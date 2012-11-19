@@ -17,7 +17,17 @@
 # limitations under the License.
 #
 
-package "curl"
+ruby_ver = node['cloudfoundry_stager']['ruby_version']
+ruby_path = ruby_bin_path(ruby_ver)
+
+%w[curl libxml2 libxml2-dev libxslt1-dev].each do |pkg|
+  package pkg
+end
+
+include_recipe "rbenv::default"
+include_recipe "rbenv::ruby_build"
+
+rbenv_ruby ruby_ver
 
 cloudfoundry_source "stager" do
   path          node['cloudfoundry_stager']['vcap']['install_path']

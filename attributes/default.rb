@@ -10,6 +10,8 @@ default['cloudfoundry_stager']['vcap']['repo']         = "https://github.com/clo
 # either a specific sha or a reference such as `HEAD` or `master`.
 default['cloudfoundry_stager']['vcap']['reference']    = "206b1071298dc25dcfb8ca4f0004a2edbc3b0b7e"
 
+default['cloudfoundry_stager']['ruby_version'] = node['cloudfoundry']['ruby_1_9_2_version']
+
 # Log level for the stager.
 default['cloudfoundry_stager']['log_level'] = "info"
 
