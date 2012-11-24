@@ -31,7 +31,13 @@ default['cloudfoundry_stager']['max_active_tasks'] = 10
 default['cloudfoundry_stager']['queues'] = ['staging']
 
 # 
-default['cloudfoundry_stager']['tmp_dir'] = File.join(node['cloudfoundry']['data_dir'], "stager", "tmp")
+default['cloudfoundry_stager']['data_dir'] = File.join(node['cloudfoundry']['data_dir'], "stager")
+
+# 
+default['cloudfoundry_stager']['tmp_dir'] = File.join(node['cloudfoundry_stager']['data_dir'], "tmp")
+
+# 
+default['cloudfoundry_stager']['cache_dir'] = File.join(node['cloudfoundry_stager']['data_dir'], "package_cache", "ruby")
 
 # 
 default['cloudfoundry_stager']['secure'] = false

@@ -29,6 +29,22 @@ include_recipe "rbenv::ruby_build"
 
 rbenv_ruby ruby_ver
 
+%w[data_dir tmp_dir cache_dir].each do |d|
+  directory node['cloudfoundry_stager'][d] do
+    owner node['cloudfoundry']['user']
+    group node['cloudfoundry']['group']
+    mode 0755
+    recursive true
+  end
+end
+
+template File.join(node['cloudfoundry']['config_dir'], "platform.yml") do
+  source "platform.yml.erb"
+  owner node['cloudfoundry']['user']
+  group node['cloudfoundry']['group']
+  mode 0644
+end
+
 cloudfoundry_source "stager" do
   path          node['cloudfoundry_stager']['vcap']['install_path']
   repository    node['cloudfoundry_stager']['vcap']['repo']
@@ -39,6 +55,7 @@ cloudfoundry_component "stager" do
   install_path  node['cloudfoundry_stager']['vcap']['install_path']
   pid_file      node['cloudfoundry_stager']['pid_file']
   log_file      node['cloudfoundry_stager']['log_file']
+  upstart_file_cookbook "cloudfoundry-stager"
   action        [:create, :enable, :start]
   subscribes    :restart, resources(:cloudfoundry_source => "stager")
 end
