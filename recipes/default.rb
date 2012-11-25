@@ -38,6 +38,12 @@ rbenv_ruby ruby_ver
   end
 end
 
+directory node['cloudfoundry']['config_dir'] do
+  owner node['cloudfoundry']['user']
+  group node['cloudfoundry']['group']
+  mode 0755
+end
+
 template File.join(node['cloudfoundry']['config_dir'], "platform.yml") do
   source "platform.yml.erb"
   owner node['cloudfoundry']['user']
