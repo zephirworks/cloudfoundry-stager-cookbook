@@ -29,6 +29,12 @@ describe 'cloudfoundry::default' do
     end
   end
 
+  it 'creates a platform file' do
+    file("/etc/cloudfoundry/platform.yml").must_exist # .with(:owner, 'cloudfoundry')
+    platform = YAML.load_file('/etc/cloudfoundry/platform.yml')
+    platform['cache'].must_equal "/var/vcap/data/stager/package_cache/ruby"
+  end
+
   it 'creates a service init file' do
     file("/etc/init/cloudfoundry-stager.conf").must_exist # .with(:owner, 'cloudfoundry')
   end
