@@ -16,6 +16,6 @@ queues:
 dirs:
   tmp: <%= node['cloudfoundry_stager']['tmp_dir'] %>
 
-ruby_path: <%= File.join(ruby_bin_path(node['cloudfoundry']['ruby_1_9_2_version']), "ruby") %>
+ruby_path: <%= File.join(ruby_bin_path(node['cloudfoundry_stager']['ruby_version']), "ruby") %>
 
 secure: <%= node['cloudfoundry_stager']['secure'] %>
