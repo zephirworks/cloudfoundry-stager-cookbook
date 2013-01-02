@@ -21,7 +21,7 @@ include_attribute "cloudfoundry::directories"
 
 default['cloudfoundry_stager']['vcap']['install_path'] = "/srv/vcap-stager"
 default['cloudfoundry_stager']['vcap']['repo']         = "https://github.com/cloudfoundry/stager.git"
-default['cloudfoundry_stager']['vcap']['reference']    = "206b1071298dc25dcfb8ca4f0004a2edbc3b0b7e"
+default['cloudfoundry_stager']['vcap']['reference']    = "18f5f994200003a3e96052ea0d5a940976187587"
 
 default['cloudfoundry_stager']['ruby_version'] = node['cloudfoundry']['ruby_1_9_2_version']
 
