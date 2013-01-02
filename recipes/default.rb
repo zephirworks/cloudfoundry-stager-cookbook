@@ -66,5 +66,5 @@ cloudfoundry_component "stager" do
   log_file      node['cloudfoundry_stager']['log_file']
   upstart_file_cookbook "cloudfoundry-stager"
   action        [:create, :enable, :start]
-  subscribes    :restart, resources(:cloudfoundry_source => "stager")
+  subscribes    :restart, "cloudfoundry_source[stager]"
 end
