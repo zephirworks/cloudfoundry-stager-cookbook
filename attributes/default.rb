@@ -23,8 +23,6 @@ default['cloudfoundry_stager']['vcap']['install_path'] = "/srv/vcap-stager"
 default['cloudfoundry_stager']['vcap']['repo']         = "https://github.com/cloudfoundry/stager.git"
 default['cloudfoundry_stager']['vcap']['reference']    = "02c4448080426ab265f10a5ea4112e93ff2c4e6c"
 
-default['cloudfoundry_stager']['ruby_version'] = node['cloudfoundry']['ruby_1_9_2_version']
-
 default['cloudfoundry_stager']['log_level'] = "info"
 default['cloudfoundry_stager']['log_file'] = File.join(node['cloudfoundry']['log_dir'], "stager.log")
 default['cloudfoundry_stager']['pid_file'] = File.join(node['cloudfoundry']['pid_dir'], "stager.pid")

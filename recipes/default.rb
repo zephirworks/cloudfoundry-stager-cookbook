@@ -17,6 +17,7 @@
 # limitations under the License.
 #
 
+node.default['cloudfoundry_stager']['ruby_version'] = node['cloudfoundry']['ruby_1_9_2_version']
 
 include_recipe "cloudfoundry-stager::runtimes"
 
